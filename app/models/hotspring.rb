@@ -1,0 +1,2 @@
+class Hotspring < ApplicationRecord
+end

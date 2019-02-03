@@ -53,3 +53,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'kaminari'
+gem "rakuten_web_service", "1.5.0"
+gem "dotenv-rails"
