@@ -10,13 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190203045020) do
+ActiveRecord::Schema.define(version: 20190211001108) do
+
+  create_table "cities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "prefecture_id"
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["prefecture_id"], name: "index_cities_on_prefecture_id", using: :btree
+  end
+
+  create_table "districts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "prefecture_id"
+    t.integer  "city_id"
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["city_id"], name: "index_districts_on_city_id", using: :btree
+    t.index ["prefecture_id"], name: "index_districts_on_prefecture_id", using: :btree
+  end
 
   create_table "hotsprings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "code"
+    t.string   "image_url"
   end
 
+  create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_foreign_key "cities", "prefectures"
+  add_foreign_key "districts", "cities"
+  add_foreign_key "districts", "prefectures"
 end
