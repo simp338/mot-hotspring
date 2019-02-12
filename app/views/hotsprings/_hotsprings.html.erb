@@ -1,0 +1,21 @@
+<% if @results.present? %>
+  <div class="row">
+    <% @results.each do |result| %>
+      <div class="hotspring">
+        <div class="col-md-3 col-sm-4 col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-heading text-center">
+              <a href="<%= result[:hotel][0][:hotelBasicInfo][:hotelInformationUrl] %>"><img src="<%= result[:hotel][0][:hotelBasicInfo][:hotelImageUrl] %>" alt="詳細ページ"></a>
+            </div>
+            <div class="panel-body">
+              <div class="hotspring-name">
+                [<%= result[:hotel][0][:hotelBasicInfo][:hotelNo] %>]
+                <%= result[:hotel][0][:hotelBasicInfo][:hotelName] %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

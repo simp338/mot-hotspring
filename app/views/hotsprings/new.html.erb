@@ -1,0 +1,24 @@
+<% if @result.present? %>
+  <%= @result %>
+
+  <div class="row">
+    <div class="hotspring">
+      <div class="col-md-3 col-sm-4 col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-heading text-center">
+            <img src="<%= @result[:hotel][0][:hotelBasicInfo][:hotelImageUrl] %>" alt="">
+          </div>
+          <div class="panel-body">
+            <div class="hotspring-name">
+              [<%= @result[:hotel][0][:hotelBasicInfo][:hotelNo] %>]
+              <%= @result[:hotel][0][:hotelBasicInfo][:hotelName] %>
+              <a href="<%= @result[:hotel][0][:hotelBasicInfo][:hotelInformationUrl] %>">楽天トラベル詳細ページへ</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <p>結果がありません。</p>
+<% end %>

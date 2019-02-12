@@ -1,0 +1,17 @@
+<div class="search">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="text-center">
+        <%= form_for(hotsprings_path, method: :get, class: 'form-inline') do |f| %>
+          <div class="form-group">
+            <%= f.collection_select :prefecture, Prefecture.all, :code, :name, {selected: @seleceted_prefecture}, class: 'form-control'  %>
+            <%= f.collection_select :city, City.all, :code, :name, {selected: @seleceted_city}, class: 'form-control' %>
+            <%= f.collection_select :district, District.all, :code, :name, {include_blank: true, selected: @seleceted_district}, class: 'form-control' %>
+            <%= f.select :squeezeCondition, options_for_select([["大浴場あり",:daiyoku], ["温泉あり",:onsen],["大浴場かつ温泉", "daiyoku,onsen"]]), {selected: @selected_squeezeCondition}, class: "form-control" %>
+            <%= f.submit '検索', class: 'btn btn-success btn-block' %>
+          </div>
+        <% end %>
+      </div>      
+    </div>
+  </div>
+</div>

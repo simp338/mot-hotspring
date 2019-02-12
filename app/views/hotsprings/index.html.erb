@@ -1,0 +1,15 @@
+<% content_for :cover do %>
+  <div class="cover center jumbotron">
+    <div class="text-center">
+      <h1>もっと温泉！</h1>
+      <p>温泉に浸ろう</p>
+    </div>      
+  <%= render "search" %>
+  </div>
+<% end %>
+
+<%= @area_lists %>
+
+
+
+<%= render "hotsprings/hotsprings" %>

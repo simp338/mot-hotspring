@@ -1,15 +1,78 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@charset "utf-8";
+
+/* body */
+body {
+  color: #333333;
+  background: #f2f2f2;
+}
+
+footer {
+  margin-top: 30px;
+}
+
+/* navbar */
+.navbar {
+  background: peachpuff;
+}
+
+.navbar-header img {
+  height: 50px; 
+}
+
+.navbar .logo-title {
+  font-size: 20px;
+}
+
+.navbar a {
+  font-weight: bold;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  opacity: 0.7; background-color: beige;
+}
+
+/* cover */
+.cover {
+  width: 100%;
+  background-image: url("/images/YAMAPAKUHIRAYUNOMORI_TP_V.jpg");
+  background-size: cover;
+  color: #333333;
+}
+
+
+/* hotspring */
+.hotspring .panel-heading img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+.hotspring a:hover {
+  opacity: 0.7; background-color: #fff;
+  transition: 0.3s;
+}
+
+.hotspring .panel-body {
+  height: 90px;
+}
+
+.hotspring .panel-body li {
+  list-style: none;
+  margin-left: -40px;
+}
+
+.hotspring .hotspring-name {
+  overflow: hidden;
+}
+
+/* search */
+.search li {
+  list-style: none;
+}
+
+.search .form-group  {
+  text-align: center;
+  margin: 0 auto;
+}
