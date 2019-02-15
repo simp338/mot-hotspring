@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   
   get "signup", to: "users#new"
   resources :users
-  resources :hotsprings, only: [:index, :show, :create]
-  
+  resources :hotsprings, only: [:index, :show, :create] do
+    collection do
+      post :search_cities
+      post :search_districts
+    end
+  end
+  resources :relationships, only: [:create, :destroy]
 end

@@ -4,9 +4,9 @@
       <div class="text-center">
         <%= form_for(hotsprings_path, method: :get, class: 'form-inline') do |f| %>
           <div class="form-group">
-            <%= f.collection_select :prefecture, Prefecture.all, :code, :name, {selected: @seleceted_prefecture}, class: 'form-control'  %>
-            <%= f.collection_select :city, City.all, :code, :name, {selected: @seleceted_city}, class: 'form-control' %>
-            <%= f.collection_select :district, District.all, :code, :name, {include_blank: true, selected: @seleceted_district}, class: 'form-control' %>
+            <%= f.collection_select :prefecture, @prefecture_options, :id, :name, {prompt: "選択してください", selected: @seleceted_prefecture}, class: 'form-control'  %>
+            <%= f.collection_select :city, @city_options, :id, :name, {selected: @seleceted_city}, class: 'form-control' %>
+            <%= f.collection_select :district, @district_options, :id, :name, {selected: @seleceted_district}, class: 'form-control grayout' %>
             <%= f.select :squeezeCondition, options_for_select([["大浴場あり",:daiyoku], ["温泉あり",:onsen],["大浴場かつ温泉", "daiyoku,onsen"]]), {selected: @selected_squeezeCondition}, class: "form-control" %>
             <%= f.submit '検索', class: 'btn btn-success btn-block' %>
           </div>
@@ -15,3 +15,31 @@
     </div>
   </div>
 </div>
+
+<script>
+    $('#_hotsprings_prefecture').change(function (){
+    $.ajax({
+      url: '<%= search_cities_hotsprings_path %>',
+      type: 'POST',
+      data: {
+        prefecture_id: $(this).val(),
+      }
+    });
+  });
+  
+  $('#_hotsprings_city').change(function(){
+    $.ajax({
+      url: '<%= search_districts_hotsprings_path %>',
+      type: 'POST',
+      data: {
+        cities_id: $(this).val(),
+      }
+    });
+  });
+  
+  $(function(){
+    if (!($('#_hotsprings_district').length)){
+      $(".grayout").css('background-color', 'lightgray');
+      }
+    }); 
+</script>

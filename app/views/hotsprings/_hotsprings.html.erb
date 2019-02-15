@@ -8,6 +8,10 @@
               <a href="<%= result[:hotel][0][:hotelBasicInfo][:hotelInformationUrl] %>"><img src="<%= result[:hotel][0][:hotelBasicInfo][:hotelImageUrl] %>" alt="詳細ページ"></a>
             </div>
             <div class="panel-body">
+              <div class="buttons text-center">
+                <!-- % binding.pry % -->
+                <!-- %= render "relationships/wannago_button", hotspring: read(result) % -->
+              </div>
               <div class="hotspring-name">
                 [<%= result[:hotel][0][:hotelBasicInfo][:hotelNo] %>]
                 <%= result[:hotel][0][:hotelBasicInfo][:hotelName] %>

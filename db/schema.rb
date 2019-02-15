@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190211001108) do
+ActiveRecord::Schema.define(version: 20190212225232) do
 
   create_table "cities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id"
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(version: 20190211001108) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "type"
+    t.integer  "user_id"
+    t.integer  "hotspring_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["hotspring_id"], name: "index_relationships_on_hotspring_id", using: :btree
+    t.index ["user_id", "hotspring_id", "type"], name: "index_relationships_on_user_id_and_hotspring_id_and_type", unique: true, using: :btree
+    t.index ["user_id"], name: "index_relationships_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "email"
@@ -59,4 +70,6 @@ ActiveRecord::Schema.define(version: 20190211001108) do
   add_foreign_key "cities", "prefectures"
   add_foreign_key "districts", "cities"
   add_foreign_key "districts", "prefectures"
+  add_foreign_key "relationships", "hotsprings"
+  add_foreign_key "relationships", "users"
 end
