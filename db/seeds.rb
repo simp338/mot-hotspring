@@ -4,9 +4,9 @@ require 'open-uri'
 uri = 'https://app.rakuten.co.jp/services/api/Travel/GetAreaClass/20131024?format=json&applicationId='+ENV["RAKUTEN_APPLICATION_ID"]
 results = JSON.parse open(uri).read, {symbolize_names: true}
 
-MODE = [:prefectures, :cities, :districts]
+modes = [:prefectures, :cities, :districts]
 
-MODE.each do |mode|
+modes.each do |mode|
   case mode
     when :prefectures
       results [:areaClasses][:largeClasses][0][:largeClass][1][:middleClasses].each do |result|
@@ -38,7 +38,7 @@ MODE.each do |mode|
                 prefecture_id: prefecture.id,
                 )
             end
-          rescue NoMethodError
+          rescue
             next
           end
         end
