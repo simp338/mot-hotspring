@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   delete "logout", to: "sessions#destroy"
   
   get "signup", to: "users#new"
+
+  get "hotspring/:code", to: "hotsprings#show"
+
   resources :users
-  resources :hotsprings, only: [:index, :show, :create] do
+  resources :hotsprings, only: [:index, :create] do
     collection do
       post :search_cities
       post :search_districts

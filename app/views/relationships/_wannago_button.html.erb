@@ -1,4 +1,4 @@
-<% if current_user.wannago?(hotspring) %>
+<% if !!current_user && current_user.wannago?(hotspring) %>
   <%= form_tag(relationship_path(hotspring.id), method: :delete) do %>
     <%= hidden_field_tag :hotspring_id, hotspring.id %>
     <%= hidden_field_tag :type, 'Wannago' %>
@@ -6,7 +6,7 @@
   <% end %>
 <% else %>
   <%= form_tag(relationships_path) do %>
-    <%= hidden_field_tag :hotspring_code, hotspring.code %>
+    <%= hidden_field_tag :hotspring_code, hotspring[:code] %>
     <%= hidden_field_tag :type, 'Wannago' %>
     <%= submit_tag 'Wannago', class: 'btn btn-primary' %>
   <% end %>

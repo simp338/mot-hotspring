@@ -5,4 +5,23 @@
   <div class="name text-center">
     <h1><%= @user.name %></h1>
   </div>
+  <div class="edit-menu text-center">
+    <% if current_user == @user %>
+      <%= link_to "会員情報を変更する", edit_user_path(current_user), class: "btn btn-info" %>
+      <%= link_to "退会する", user_path(@user), method: :delete, data: {confirm: "退会しますか？"}, class: "btn btn-danger" %>
+    <% end %>
+  </div>
+  <div class="hotsprings-count">
+    <ul>
+      <li>
+        <div class="status-label">Wannago</div>
+        <div id="wannagoes_count"><%= @wannagoes_count %></div>
+      </li>
+      <li>
+        <div class="status-label">Went</div>
+        <div id="wents_count"><%= @wents_count %></div>
+      </li>
+    </ul>
+  </div>
+  <%= render "hotsprings/hotsprings", hotsprings: @hotsprings, aboutBath_hashes: @aboutBath_hashes %>
 </div>

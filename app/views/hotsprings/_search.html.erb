@@ -7,7 +7,7 @@
             <%= f.collection_select :prefecture, @prefecture_options, :id, :name, {prompt: "選択してください", selected: @seleceted_prefecture}, class: 'form-control'  %>
             <%= f.collection_select :city, @city_options, :id, :name, {selected: @seleceted_city}, class: 'form-control' %>
             <%= f.collection_select :district, @district_options, :id, :name, {selected: @seleceted_district}, class: 'form-control grayout' %>
-            <%= f.select :squeezeCondition, options_for_select([["大浴場あり",:daiyoku], ["温泉あり",:onsen],["大浴場かつ温泉", "daiyoku,onsen"]]), {selected: @selected_squeezeCondition}, class: "form-control" %>
+            <%= f.select :squeezeCondition, options_for_select([["温泉かつ大浴場", "onsen,daiyoku"],["温泉あり",:onsen],["大浴場あり",:daiyoku]]), {selected: @selected_squeezeCondition}, class: "form-control" %>
             <%= f.submit '検索', class: 'btn btn-success btn-block' %>
           </div>
         <% end %>
@@ -37,9 +37,14 @@
     });
   });
   
-  $(function(){
-    if (!($('#_hotsprings_district').length)){
+  $('#_hotsprings_district').click(function(){
+    if ($('#_hotsprings_district').children().length === 0) {
       $(".grayout").css('background-color', 'lightgray');
-      }
-    }); 
+    }
+    if ($('#_hotsprings_district').children().length > 0) {
+      $(".grayout").css('background-color', '#fff');
+    }
+  });
+
 </script>
+

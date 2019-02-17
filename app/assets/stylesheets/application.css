@@ -39,14 +39,37 @@ footer {
   background-image: url("/images/YAMAPAKUHIRAYUNOMORI_TP_V.jpg");
   background-size: cover;
   color: #333333;
+  font-weight: bold;
 }
 
+.cover h1 h2 {
+  font-weight: bold;
+}
+
+.cover p {
+  font-size: 16px;
+  font-weight: bold;
+}
 
 /* hotspring */
 .hotspring .panel-heading img {
   height: 200px;
-  width: 200px;
+  width: 100%;
+  /*margin-left: -8px;*/
   object-fit: cover;
+}
+
+.hotspring .panel-heading span {
+  margin-left: 5px;
+}
+
+.hotspring .buttons{
+  margin-top: -10px;
+  margin-bottom: 0px;
+}
+
+.hotspring .buttons form{
+  display: inline-block;
 }
 
 .hotspring a:hover {
@@ -55,7 +78,7 @@ footer {
 }
 
 .hotspring .panel-body {
-  height: 90px;
+  height: 150px;
 }
 
 .hotspring .panel-body li {
@@ -63,16 +86,71 @@ footer {
   margin-left: -40px;
 }
 
-.hotspring .hotspring-name {
+.hotspring .panel-body .hotspring-name span {
+  display: inline-block;
+}
+
+.hotspring .hotspring-name p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   overflow: hidden;
 }
 
 /* search */
-.search li {
-  list-style: none;
-}
-
 .search .form-group  {
   text-align: center;
   margin: 0 auto;
+}
+
+/* hotspring-details*/
+.hotspring-details img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.hotspring-details .panel-body ul{
+  padding-left: 0;
+  margin: 5px 0;
+}
+
+.hotspring-details .panel-body ul li{
+  display: inline-block;
+}
+
+.hotspring-details .hotspring-explanation table {
+  margin: 5px 0 0 -20px;
+  table-layout: fixed;
+  overflow-wrap: break-word;
+}
+
+.hotspring-details .hotspring-explanation table td:nth-child(1) {
+  width: 30%;
+}
+
+/* user */
+.user-profile .hotsprings-count ul {
+  padding-left: 0;
+}
+
+.user-profile .hotsprings-count ul {
+  font-weight: bold;
+  list-style: none;
+  display: table;
+}
+
+.user-profile .hotsprings-count ul{
+  margin: 10px auto 5px;
+}
+
+.user-profile .hotsprings-count ul li {
+  display: table-cell;
+  border-left: solid 1px #ddd;
+  text-align: center;
+  padding: 0px 10px;
+  width: 120px;
+}
+
+.user-profile .hotsprings-count ul li:last-child{
+  border-right: solid 1px #ddd;
 }

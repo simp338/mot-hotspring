@@ -2,7 +2,8 @@
   <div class="cover center jumbotron">
     <div class="text-center">
       <h1>もっと温泉！</h1>
-      <p>温泉に浸ろう</p>
+      <h2>温泉宿に泊まろう</h2>
+      <p>温泉のある宿を検索できるサイトです。</p>
     </div>      
   <%= render "search" %>
   </div>
@@ -12,4 +13,4 @@
 
 
 
-<%= render "hotsprings/hotsprings" %>
+<%= render "hotsprings/hotsprings", hotsprings: @hotsprings, aboutBath_hashes: @aboutBath_hashes %>

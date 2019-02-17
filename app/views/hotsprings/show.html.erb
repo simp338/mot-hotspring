@@ -1,1 +1,36 @@
-<a href="<%= result[:hotel][0][:hotelBasicInfo][:hotelInformationUrl] %>"><img src="<%= result[:hotel][0][:hotelBasicInfo][:hotelImageUrl] %>" alt=""></a>
+<div class="hotspring-details">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <%= @hotspring[:name] %>
+      <% @hotspring_aboutBath.each do |h| %>
+      <span class="label label-danger"><%= h %></span>
+      <% end %>
+    </div>
+    <div class="panel-body">
+      <div class="col-sm-6 col-xs-12">
+        <div class="hotspring-image">
+          <img src="<%= @hotspring[:image_url] %>" alt="施設写真">
+        </div>
+        <ul class="buttons text-center">
+          <li><%= render "relationships/wannago_button", hotspring: @hotspring %></li>
+          <li><%= render "relationships/went_button", hotspring: @hotspring %></li>
+        </ul>
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        <div class="hotspring-explanation">
+          <div class="button text-center">
+            <a href="<%= @hotspring[:url] %>"><button class="btn btn-info">楽天トラベル詳細ページへ</button></a>
+          </div>
+          <table class="table">
+            <% @hotspring_details.each do |key, value| %>
+            <tr>
+              <td><%= key %></td>
+              <td><%= value %></td>              
+            </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  

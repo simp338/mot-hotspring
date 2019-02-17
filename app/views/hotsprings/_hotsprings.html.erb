@@ -1,25 +1,35 @@
-<% if @results.present? %>
-  <div class="row">
-    <% @results.each do |result| %>
-      <div class="hotspring">
-        <div class="col-md-3 col-sm-4 col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading text-center">
-              <a href="<%= result[:hotel][0][:hotelBasicInfo][:hotelInformationUrl] %>"><img src="<%= result[:hotel][0][:hotelBasicInfo][:hotelImageUrl] %>" alt="詳細ページ"></a>
-            </div>
-            <div class="panel-body">
-              <div class="buttons text-center">
-                <!-- % binding.pry % -->
-                <!-- %= render "relationships/wannago_button", hotspring: read(result) % -->
+<% if @noresults %>
+  <%= @noresults %>
+<% else %>
+  <% if hotsprings.present? %>
+    <div class="row">
+      <% hotsprings.each do |hotspring| %>
+        <div class="hotspring">
+          <div class="col-md-3 col-sm-4 col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading text-center">
+                <%= link_to "/hotspring/#{hotspring[:code]}", hotspring: hotspring do %>
+                  <img src="<%= hotspring[:image_url] %>" alt="詳細ページ">
+                <% end %>
               </div>
-              <div class="hotspring-name">
-                [<%= result[:hotel][0][:hotelBasicInfo][:hotelNo] %>]
-                <%= result[:hotel][0][:hotelBasicInfo][:hotelName] %>
+              <div class="panel-body">
+                <div class="buttons text-center">
+                  <%= render "relationships/wannago_button", hotspring: hotspring %>
+                  <%= render "relationships/went_button", hotspring: hotspring %>
+                </div>
+                <div class="hotspring-name">
+                  <% if aboutBath_hashes.present? %>
+                    <% aboutBath_hashes[hotspring[:code]].each do |h| %>
+                      <span class="label label-danger"><%= h %></span>
+                    <% end %><br>
+                  <% end %>
+                  <p><%= hotspring[:name] %></p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
