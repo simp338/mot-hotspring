@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+// (function() {
+//   'use strict';
+  
+//   var districtSelect = document.getElementById('district-select');
+  
+
+// })();
