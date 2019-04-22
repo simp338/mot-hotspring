@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      UserMailer.creation_email(@user).deliver_now
       flash[:success] = 'ユーザを登録しました。'
       redirect_to login_path
     else
