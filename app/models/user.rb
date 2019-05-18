@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :wannago_hotsprings, through: :wannagoes, source: :hotspring
   has_many :wents
   has_many :went_hotsprings, through: :wents, source: :hotspring
+  has_many :reviews, dependent: :destroy
   
   def wannago(hotspring)
     self.wannagoes.find_or_create_by(hotspring_id: hotspring.id)

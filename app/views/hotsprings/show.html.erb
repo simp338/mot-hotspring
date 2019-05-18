@@ -18,8 +18,8 @@
       </div>
       <div class="col-sm-6 col-xs-12">
         <div class="hotspring-explanation">
-          <div class="button text-center">
-            <a href="<%= @hotspring[:url] %>"><button class="btn btn-info">楽天トラベル詳細ページへ</button></a>
+          <div class="reviews text-center">
+            <%= link_to "レビューを見る", "/hotspring/#{@hotspring[:code]}/reviews", hotspring: @hotspring, class: "btn btn-default" %>
           </div>
           <table class="table">
             <% @hotspring_details.each do |key, value| %>
@@ -29,6 +29,9 @@
             </tr>
             <% end %>
           </table>
+          <div class="button text-center">
+            <a href="<%= @hotspring[:url] %>"><button class="btn btn-info">楽天トラベル詳細ページへ</button></a>
+          </div>
         </div>
       </div>
     </div>

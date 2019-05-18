@@ -1,13 +1,19 @@
 <% if !!current_user && current_user.went?(hotspring) %>
-  <%= form_tag(relationship_path(hotspring.id), method: :delete) do %>
-    <%= hidden_field_tag :hotspring_id, hotspring.id %>
-    <%= hidden_field_tag :type, 'Went' %>
-    <%= submit_tag 'Unwent', class: 'btn btn-success' %>
+  <% if params[:code].present? || @user.present? &&  current_user.id == @user.id %>
+    <%= form_tag(relationship_path(hotspring.id), method: :delete) do %>
+      <%= hidden_field_tag :hotspring_id, hotspring.id %>
+      <%= hidden_field_tag :type, 'Went' %>
+      <%= submit_tag '行ったを解除', class: 'btn btn-success' %>
+    <% end %>
+  <% else %>
+    <button class="btn btn-success disabled">行った</button>
   <% end %>
 <% else %>
-  <%= form_tag(relationships_path) do %>
-    <%= hidden_field_tag :hotspring_code, hotspring[:code] %>
-    <%= hidden_field_tag :type, 'Went' %>
-    <%= submit_tag 'Went', class: 'btn btn-primary' %>
+  <% if params[:code].present? ||  @user.present? &&  current_user.id == @user.id %>
+    <%= form_tag(relationships_path) do %>
+      <%= hidden_field_tag :hotspring_code, hotspring[:code] %>
+      <%= hidden_field_tag :type, 'Went' %>
+      <%= submit_tag '行った', class: 'btn btn-primary' %>
+    <% end %>
   <% end %>
 <% end %>

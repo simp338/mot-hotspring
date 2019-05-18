@@ -1,0 +1,33 @@
+<p><%= link_to @hotspring.name, "/hotspring/#{@hotspring.code}/reviews" %>のレビュー一覧へ戻る</p>
+<% if @review.present? %>
+  <div class="review-detail">
+    <div class="review-title">
+      <%= @review.title %>
+    </div>
+    <div class="review-body">
+      <%= simple_format(h(@review.comment), {}, sanitize: false) %>
+    </div>
+    <div class="review-footer">
+      <div class="review-button">
+        <% if current_user == @review.user %>
+          <%= link_to "編集", "/hotspring/#{@hotspring[:code]}/reviews/#{@review.id}/edit", class: "btn btn-warning" %>
+          <%= link_to "削除", "/hotspring/#{@hotspring[:code]}/reviews/#{@review.id}", method: :delete, data: { confirm: "レビューを削除します。よろしいですか？" }, class: "btn btn-danger" %>
+        <% end %>      
+      </div>
+      <div class="review-info">
+        <div class="review-userInfo">
+          <img src="<%= gravatar_url(@review.user, size: 25) %>" alt="" class="img-circle">
+          <%= link_to @review.user.name, @review.user %>
+        </div>
+        <ul class="review-timestamp">
+          <li>更新日時:<%= @review.updated_at %></li>
+          <li>作成日時:<%= @review.created_at %></li>
+        </ul>            
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="no-review">
+    <p>指定されたレビュー詳細は存在しません。</p>
+  </div>
+<% end %>
