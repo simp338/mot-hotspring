@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+#must-input {
+  color:red;
+}
+
 /* body */
 body {
   color: #333333;
@@ -51,6 +55,11 @@ footer {
   font-size: 16px;
   font-weight: bold;
   text-shadow: 0.5px 0.5px 0.2px lightgray;
+}
+
+/* error */
+#error_explanation ul {
+  padding-left: 10px;
 }
 
 /* hotspring */
@@ -155,4 +164,47 @@ footer {
 
 .user-profile .hotsprings-count ul li:last-child{
   border-right: solid 1px #ddd;
+}
+
+/* review */
+.reviews > .btn {
+  margin: 5px 0;
+}
+
+
+.review-form > .half-width ul li {
+  list-style: none;
+  float: left;
+  margin-right: 10px;
+  line-height: 33px;
+}
+
+.no-review {
+  color: red;
+  font-weight: bold;
+}
+
+.review-detail > .review-footer > .review-button {
+  margin: 5px 0;
+}
+
+.review-detail > .review-title {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.review-detail > .review-body {
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  padding: 5px;
+}
+
+.review-detail > .review-footer > .review-info > .review-userInfo {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.review-detail > .review-footer > .review-info >  ul {
+  padding: 0;
+  list-style: none;
 }

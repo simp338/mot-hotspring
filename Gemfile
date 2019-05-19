@@ -68,3 +68,7 @@ group :test do
   gem 'chromedriver-helper'
   gem 'rspec-rails', '~> 3.7'
 end
+
+gem 'arel', '8.0'
+gem 'slim-rails'
+gem 'html2slim'

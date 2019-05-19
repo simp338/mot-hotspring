@@ -1,0 +1,37 @@
+<div class="reviews">
+  <% if @reviews.present? %>
+    <p><%= link_to @hotspring.name, "/hotspring/#{@hotspring.code}" %>のレビュー一覧</p>
+    <%= link_to "レビューする", "/hotspring/#{@hotspring[:code]}/reviews/new", hotspring: @hotspring, class: "btn btn-default" %>
+    <table class="table">
+        <tr>
+          <th>No</th>
+          <th>ユーザー名</th>
+          <th>タイトル</th>
+          <th class="hidden-xs">コメント</th>
+          <th>満足度</th>
+          <th>訪問日</th>
+          <th class="hidden-xs">更新日</th>
+        </tr>
+      <% @reviews.each.with_index(1) do |review, idx| %>
+        <tr>
+          <td><% if params[:page].to_i > 1 %>
+                <%= idx + ((params[:page].to_i - 1) * 25 ) %>
+              <% else %>
+                <%= idx %>
+              <% end %>
+          </td>
+          <td><%= link_to review.user.name, review.user %></td>
+          <td><%= link_to review.title, "/hotspring/#{@hotspring[:code]}/reviews/#{review.id}" %></td>
+          <td class="hidden-xs"><%= review.comment.slice(0, 20) %>...<%= link_to "続きを読む", "/hotspring/#{@hotspring[:code]}/reviews/#{review.id}" %></td>
+          <td><%= review.satisfaction_degree %></td>
+          <td class="hidden-xs"><%= review.visit_date %></td>
+          <td class="hidden-xs"><%= review.created_at.strftime("%Y/%m/%d") %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%= paginate @reviews %>
+    <%= page_entries_info @reviews %>
+  <% else %>
+    <p>レビューはありません。</p>
+  <% end %>      
+</div>

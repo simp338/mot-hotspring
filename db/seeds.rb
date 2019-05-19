@@ -47,3 +47,25 @@ modes.each do |mode|
       "MODE isn't match!"
   end
 end
+
+# # userモデルにデータ追加
+# ("a".."z").each do |name|
+#   User.find_or_create_by!(email: "#{name}@#{name}.com") do |user|
+#     user.name = "#{name}"
+#     user.email = "#{name}@#{name}.com"
+#     user.password = "#{name}"
+#     user.password_confirmation = "#{name}"
+#   end
+# end
+
+# reviewモデルにデータ追加
+# (1..5).each do |attempt|
+#   ("a".."z").each do |name|
+#     user = User.find_by(email: "#{name}@#{name}.com")
+#       user.reviews.create(
+#       hotspring_id: 1,
+#       title: "#{name}のタイトル#{attempt}",
+#       comment: "#{name}のコメント#{attempt}；" * 10,
+#     )
+#   end
+# end

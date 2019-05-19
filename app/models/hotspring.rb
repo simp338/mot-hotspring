@@ -8,4 +8,6 @@ class Hotspring < ApplicationRecord
   has_many :user, through: :relationships
   has_many :wannagoes
   has_many :wannago_hotsprings, through: :wannagoes, source: :user
+  has_many :reviews
+  
 end
