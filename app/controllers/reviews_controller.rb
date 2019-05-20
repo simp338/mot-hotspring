@@ -5,7 +5,12 @@ class ReviewsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
   
   def new
-    @review = Review.new
+    if current_user.went?(@hotspring)
+      @review = Review.new
+    else
+      flash[:warning] = "レビューを投稿するには「行った」に保存する必要があります"
+      redirect_to "/hotspring/#{@hotspring.code}/"
+    end
   end
 
   def create
@@ -61,6 +66,12 @@ class ReviewsController < ApplicationController
   
   def set_hotspring
     @hotspring = Hotspring.find_by(code: params[:code])
+    if @hotspring.nil?
+      uri = URI.parse(hotelNo_search(params[:code]))
+      json = Net::HTTP.get(uri)
+      result = JSON.parse(json, {symbolize_names: true})
+      @hotspring = Hotspring.find_or_initialize_by(read(result[:hotels].first))
+    end
   end
   
   def set_review
