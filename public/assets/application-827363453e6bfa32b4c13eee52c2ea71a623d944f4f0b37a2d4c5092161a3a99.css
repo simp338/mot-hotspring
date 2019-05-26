@@ -1,0 +1,210 @@
+
+
+#must-input {
+  color:red;
+}
+
+/* body */
+body {
+  color: #333333;
+  background: #f2f2f2;
+}
+
+footer {
+  margin-top: 30px;
+}
+
+/* navbar */
+.navbar {
+  background: peachpuff;
+}
+
+.navbar-header img {
+  height: 50px; 
+}
+
+.navbar .logo-title {
+  font-size: 20px;
+}
+
+.navbar a, .navbar li {
+  font-weight: bold;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.navbar a:hover, .navbar li:hover {
+  opacity: 0.7; background-color: beige;
+}
+
+/* cover */
+.cover {
+  width: 100%;
+  background-image: url("/images/YAMAPAKUHIRAYUNOMORI_TP_V.jpg");
+  background-size: cover;
+  color: #333333;
+  font-weight: bold;
+}
+
+.cover h1, h2 {
+  font-weight: bold;
+  text-shadow: 1px 1px 0.5px lightgray;
+}
+
+.cover p {
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 0.5px 0.5px 0.2px lightgray;
+}
+
+/* error */
+#error_explanation ul {
+  padding-left: 10px;
+}
+
+/* hotspring */
+.hotspring .panel-heading img {
+  height: 200px;
+  width: 100%;
+  /*margin-left: -8px;*/
+  object-fit: cover;
+}
+
+.hotspring .panel-heading span {
+  margin-left: 5px;
+}
+
+.hotspring .buttons{
+  margin-top: -10px;
+  margin-bottom: 0px;
+}
+
+.hotspring .buttons form{
+  display: inline-block;
+}
+
+.hotspring a:hover {
+  opacity: 0.7; background-color: #fff;
+  transition: 0.3s;
+}
+
+.hotspring .panel-body {
+  height: 150px;
+}
+
+.hotspring .panel-body li {
+  list-style: none;
+  margin-left: -40px;
+}
+
+.hotspring .panel-body .hotspring-name span {
+  display: inline-block;
+}
+
+.hotspring .hotspring-name p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+/* search */
+.search .form-group  {
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* hotspring-details*/
+.hotspring-details img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.hotspring-details .panel-body ul{
+  padding-left: 0;
+  margin: 5px 0;
+}
+
+.hotspring-details .panel-body ul li{
+  display: inline-block;
+}
+
+.hotspring-details .hotspring-explanation table {
+  margin: 5px 0 0 -20px;
+  table-layout: fixed;
+  overflow-wrap: break-word;
+}
+
+.hotspring-details .hotspring-explanation table td:nth-child(1) {
+  width: 30%;
+}
+
+/* user */
+.user-profile .hotsprings-count ul {
+  padding-left: 0;
+}
+
+.user-profile .hotsprings-count ul {
+  font-weight: bold;
+  list-style: none;
+  display: table;
+}
+
+.user-profile .hotsprings-count ul{
+  margin: 10px auto 5px;
+}
+
+.user-profile .hotsprings-count ul li {
+  display: table-cell;
+  border-left: solid 1px #ddd;
+  text-align: center;
+  padding: 0px 10px;
+  width: 120px;
+}
+
+.user-profile .hotsprings-count ul li:last-child{
+  border-right: solid 1px #ddd;
+}
+
+/* review */
+.reviews > .btn {
+  margin: 5px 0;
+}
+
+
+.review-form > .half-width ul li {
+  list-style: none;
+  float: left;
+  margin-right: 10px;
+  line-height: 33px;
+}
+
+.no-review {
+  color: red;
+  font-weight: bold;
+}
+
+.review-detail > .review-footer > .review-button {
+  margin: 5px 0;
+}
+
+.review-detail > .review-title {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.review-detail > .review-body {
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  padding: 5px;
+}
+
+.review-detail > .review-footer > .review-info > .review-userInfo {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.review-detail > .review-footer > .review-info >  ul {
+  padding: 0;
+  list-style: none;
+}
